@@ -1,0 +1,46 @@
+import { CSSProperties, ReactNode } from 'react'
+
+
+export interface ButtonProps {
+	children?: ReactNode
+	className?: string
+	style?: CSSProperties
+	theme: 'dark' | 'light' | 'none'
+	variant: 'contained' | 'outlined'
+}
+
+export const Button = ({
+	children = null,
+	className = '',
+	style = {},
+	theme,
+	variant,
+}: ButtonProps) => {
+
+	className = `rounded py-2.5 px-5 font-semibold flex-center gap-2 ${className}`
+
+	if (variant === 'contained') {
+		if (theme === 'dark')
+			className = `bg-dark-primary text-dark-bg border-2 border-dark-primary ${className}`
+		if (theme === 'light')
+			className = `bg-light-primary text-light-bg border-2 border-light-primary ${className}`
+		className = `filter hover:brightness-110 ${className}`
+	}
+
+
+	if (variant === 'outlined') {
+		if (theme === 'dark')
+			className = `text-dark-primary bg-transparent border-2 border-dark-primary ${className}`
+		if (theme === 'light')
+			className = `text-light-primary bg-transparent border-2 border-light-primary ${className}`
+		if (theme === 'none')
+			className = `text-white bg-transparent border-2 border-white ${className}`
+		className = `hover:bg-white hover:bg-opacity-20 ${className}`
+	}
+
+	return (
+		<button className={className} style={style}>
+			{children}
+		</button >
+	)
+}

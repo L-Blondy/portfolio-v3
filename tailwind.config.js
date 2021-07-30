@@ -51,6 +51,7 @@ module.exports = {
       },
       boxShadow: {
         'outline-primary': '0 0 0 1px #27B4A3',
+        'inset-primary': 'inset 0 0 0 1px #27B4A3',
       },
       padding: {
         '1.75': '0.4375rem'

@@ -23,7 +23,7 @@ export const Skills = () => {
 						<Skill
 							title={SKILL.TITLE}
 							content={SKILL.CONTENT}
-							style={{ order: windowWidth <= 768 ? i : reoderSkills(i) }}
+							style={{ order: !!windowWidth /** !!windowWidth => Fix for SSR */ || windowWidth <= 768 ? i : reoderSkills(i) }}
 							key={`skill-${SKILL.TITLE}`}
 						/>
 					))}

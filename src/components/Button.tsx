@@ -4,6 +4,7 @@ import { CSSProperties, ReactNode } from 'react'
 export interface ButtonProps {
 	children?: ReactNode
 	className?: string
+	disabled?: boolean
 	style?: CSSProperties
 	theme: 'dark' | 'light' | 'none'
 	variant: 'contained' | 'outlined'
@@ -12,6 +13,7 @@ export interface ButtonProps {
 export const Button = ({
 	children = null,
 	className = '',
+	disabled = false,
 	style = {},
 	theme,
 	variant,
@@ -39,7 +41,7 @@ export const Button = ({
 	}
 
 	return (
-		<button className={className} style={style}>
+		<button className={className} style={style} disabled={disabled}>
 			{children}
 		</button >
 	)

@@ -6,6 +6,7 @@ import { DefaultSeo } from 'next-seo';
 import { Resume } from 'src/views/Resume';
 import { Triangles } from 'src/components/icons/Triangles';
 import { Skills } from 'src/views/Skills';
+import { Contact } from 'src/views/Contact';
 
 
 export default function Home() {
@@ -57,6 +58,7 @@ export default function Home() {
       <Projects />
       <Skills />
       <Resume />
+      <Contact />
 
       <header>
         <h2 className='text-indigo-600'>header</h2>

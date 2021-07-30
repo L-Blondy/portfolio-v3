@@ -62,7 +62,8 @@ export const VideoProject = ({
 									transform
 									transition-all
 									duration-1000
-									${(wasPaused || !canPlay) && '-translate-x-8 lg:-translate-x-12'}
+									origin-left
+									${(wasPaused || !canPlay) && 'scale-90'}
 									${!wasPaused && canPlay && device === DEVICE.PHONE && '-translate-x-12 opacity-0'}
 									${!wasPaused && canPlay && device === DEVICE.TABLET && 'scale-110'}
 								`}>
@@ -86,7 +87,7 @@ export const VideoProject = ({
 									inset-0
 									flex-center
 									transform
-									scale-75
+									scale-60
 									transition-all
 									duration-1000
 									${(wasPaused || !canPlay) && 'translate-x-1/3 translate-y-1/3'}

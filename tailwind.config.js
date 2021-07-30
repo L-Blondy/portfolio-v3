@@ -12,10 +12,10 @@ module.exports = {
       padding: {
         DEFAULT: '1.25rem',
         sm: '4rem',
-        md: '3rem',
-        lg: '7rem',
-        xl: '14rem',
-        '2xl': '22rem',
+        md: '2rem',
+        lg: '5rem',
+        xl: '11rem',
+        '2xl': '18rem',
       },
     },
     extend: {
@@ -72,6 +72,8 @@ module.exports = {
         '3/4': '75%',
       },
       translate: {
+      },
+      spacing: {
         '2/5': '40%',
       },
       transitionDuration: {
@@ -89,6 +91,8 @@ module.exports = {
       scale: {
         '10': '0.1',
         '25': '0.25',
+        '60': '0.6',
+        '70': '0.7',
         '80': '0.8',
         '85': '0.85',
         '98': '0.98',

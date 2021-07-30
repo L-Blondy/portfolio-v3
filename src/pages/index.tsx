@@ -55,8 +55,8 @@ export default function Home() {
       <Navbar />
       <Landing />
       <Projects />
-      <Resume />
       <Skills />
+      <Resume />
 
       <header>
         <h2 className='text-indigo-600'>header</h2>

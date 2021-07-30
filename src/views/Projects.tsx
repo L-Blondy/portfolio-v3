@@ -17,7 +17,7 @@ export const Projects = () => {
 			<div className='container'>
 
 
-				<SectionHeader className='pt-16 pb-10 md:pb-0 md:pt-24' trianglesClassName='md:-ml-8 lg:-ml-12'>
+				<SectionHeader className='pt-16 pb-10 md:pb-0 md:pt-24' /* trianglesClassName='md:-ml-8 lg:-ml-12' */>
 					Featured projects
 				</SectionHeader>
 

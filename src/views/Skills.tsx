@@ -18,7 +18,7 @@ export const Skills = () => {
 					Technical skills
 				</SectionHeader>
 
-				<ul className='grid md:grid-cols-2 gap-4'>
+				<ul className='grid md:grid-cols-2 gap-6'>
 					{CONTENT.SKILLS.map((SKILL, i) => (
 						<Skill
 							title={SKILL.TITLE}

@@ -20,7 +20,7 @@ export const Resume = () => {
 		<section
 			ref={ref}
 			id={SECTION_ID.RESUME}
-			className='mt-24 py-14 md:py-20 text-center md:text-left overflow-hidden'
+			className='mt-10 md:mt-16 lg:mt-24 py-14 md:py-20 text-center md:text-left overflow-hidden'
 			style={{ backgroundColor: '#002f46' /* 0c2c40 #148e7f */, boxShadow: 'inset 0 0 100px 0 #00000010' }}>
 			<div className='container flex flex-col md:flex-row md:justify-between gap-6'>
 				<div className='flex flex-col gap-6 xl:gap-8'>

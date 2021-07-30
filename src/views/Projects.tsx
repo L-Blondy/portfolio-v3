@@ -22,7 +22,7 @@ export const Projects = () => {
 				</SectionHeader>
 
 				{width > 768 || !isMounted
-					? <VideoProjects className='-mt-10' />
+					? <VideoProjects className='-mt-4 lg:-mt-10' />
 					: <ImageProjects />
 				}
 			</div>

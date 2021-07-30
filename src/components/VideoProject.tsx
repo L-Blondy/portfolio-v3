@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { InView } from 'react-intersection-observer'
 import { Video } from 'src/components/Video'
 import { Button } from 'src/components/Button'
@@ -36,14 +36,14 @@ export const VideoProject = ({
 }: Props) => {
 
 	const [ device, setDevice ] = useState<DEVICE>(DEVICE.TABLET)
-	const [ wasPaused, setWasPaused ] = useState(false)
+	const [ isPlaying, setIsPlaying ] = useState(false)
 	const windowWidth = useWindowWidth()
 
 	const handledEnded = useCallback((device: DEVICE) => () => setDevice(device), [])
-	const handlePause = useCallback(() => () => setWasPaused(true), [])
+	const handlePause = useCallback(() => () => setIsPlaying(false), [])
 	const handlePlay = useCallback((device: DEVICE) => () => {
 		setDevice(device)
-		setWasPaused(false)
+		setIsPlaying(true)
 	}, [])
 
 	return (
@@ -57,15 +57,15 @@ export const VideoProject = ({
 
 				<InView rootMargin='99999px 0px 0px 0px' root={getObserverRootElement()}>
 					{({ ref, inView }) => (
-						<div ref={ref} className={cn`relative opacity-0 speed-700 ${inView && 'animate-from-left-sm'}`} style={{ margin: '35% 0' }}>
+						<div ref={ref} className={cn`relative opacity-0 speed-700 ${inView && 'animate-from-left-sm'}`} style={{ margin: '30% 0' }}>
 							<div className={cn`
 									transform
 									transition-all
 									duration-1000
 									origin-left
-									${(wasPaused || !canPlay) && 'scale-90'}
-									${!wasPaused && canPlay && device === DEVICE.PHONE && '-translate-x-12 opacity-0'}
-									${!wasPaused && canPlay && device === DEVICE.TABLET && 'scale-110'}
+									${!isPlaying && 'scale-90'}
+									${isPlaying && device === DEVICE.PHONE && '-translate-x-12 opacity-0'}
+									${isPlaying && device === DEVICE.TABLET && 'scale-105'}
 								`}>
 								<Video
 									className='video tablet'
@@ -87,12 +87,12 @@ export const VideoProject = ({
 									inset-0
 									flex-center
 									transform
-									scale-60
+									scale-65
 									transition-all
 									duration-1000
-									${(wasPaused || !canPlay) && 'translate-x-1/3 translate-y-1/3'}
-									${!wasPaused && canPlay && device === DEVICE.TABLET && 'translate-x-2/5 translate-y-1/3 opacity-0 pointer-events-none'}
-									${!wasPaused && canPlay && device === DEVICE.PHONE && 'scale-90'}
+									${!isPlaying && 'translate-x-1/3 translate-y-1/3'}
+									${isPlaying && device === DEVICE.TABLET && 'translate-x-2/5 translate-y-1/3 opacity-0 pointer-events-none'}
+									${isPlaying && device === DEVICE.PHONE && 'scale-90'}
 								`}>
 								<Video
 									className='video phone'

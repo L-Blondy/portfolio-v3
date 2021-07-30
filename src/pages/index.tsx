@@ -4,7 +4,6 @@ import { Navbar } from 'src/views/Navbar'
 import { Projects } from 'src/views/Projects'
 import { DefaultSeo } from 'next-seo';
 import { Resume } from 'src/views/Resume';
-import { Triangles } from 'src/components/icons/Triangles';
 import { Skills } from 'src/views/Skills';
 import { Contact } from 'src/views/Contact';
 
@@ -58,7 +57,7 @@ export default function Home() {
       <Projects />
       <Skills />
       <Resume />
-      <Contact />
+      <Contact className='bg-gray-200 bg-opacity-60' />
 
       <header>
         <h2 className='text-indigo-600'>header</h2>

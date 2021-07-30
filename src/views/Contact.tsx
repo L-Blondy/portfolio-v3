@@ -1,148 +1,92 @@
-import css from './Contact.module.css'
+import { CSSProperties } from 'react'
 import { Button } from 'src/components/Button'
-// import { postContactForm } from 'async/postContactForm'
-import { useEffect, useRef, useState } from 'react'
-import { LoadingIcon } from 'src/components/icons/LoadingIcon'
-import { SuccessIcon } from 'src/components/icons/SuccessIcon'
-// import { notify } from 'src/utils/notify'
-import { SECTION_ID } from 'src/types'
-import { InView } from 'react-intersection-observer'
-import { cn } from 'src/utils/cn'
+import { SectionHeader } from 'src/components/SectionHeader'
+import { theme } from 'tailwind.config'
 
-const postContactForm = (...args: any) => { return '' as any }
-const notify = (_: string) => (_: string) => { }
-
-enum CONTACT_FORM_FIELD {
+enum FIELD {
 	EMAIL = 'email',
 	FULLNAME = 'fullname',
 	MESSAGE = 'message',
 }
 
-export const Contact = () => {
+interface Props {
+	className?: string
+	style?: CSSProperties
+}
 
-	const { formRef, isSubmitting, sentWithSuccess, handleSubmit } = useContactForm()
+export const Contact = ({
+	className = '',
+	style = {},
+}: Props) => {
+
+
 
 	return (
-		<div id={SECTION_ID.CONTACT} className='container flex flex-col gap-7 pt-8 mt-12 pb-24 overflow-hidden'>
-			<InView>
-				{({ ref, inView }) => (
-					<div ref={ref} className='flex flex-col gap-5 text-center mb-4'>
-						<div className='opacity-85'>
-							<h2 className={cn`h1 text-primary-xdark opacity-0 ${inView && 'animate-scalein'}`}>Contact me</h2>
-						</div>
-						<div className='text-lg opacity-80'>
-							<p className={cn`opacity-0 await-150 ${inView && 'animate-from-right-sm'}`}>Feel free to reach out.</p>
-							<p className={cn`opacity-0 await-150 ${inView && 'animate-from-left-sm'}`}>I'd love to hear from you!</p>
-						</div>
-					</div>
-				)}
-			</InView>
+		<div className={className} style={style}>
+			<div className='container flex justify-center py-12 sm:py-16 md:py-20'>
+				<div className='max-w-xl w-full flex flex-col gap-5 sm:gap-8'>
+					<SectionHeader>Contact me</SectionHeader>
 
-			<InView>
-				{({ ref, inView }) => (
-					<div ref={ref} className=''>
-						<form ref={formRef} className='flex flex-col self-center gap-6 mx-auto md:grid md:grid-cols-2 lg:mt-1 w-full max-w-lg text-md md:text-lg' onSubmit={handleSubmit}>
-							<div className={`${css.container} w-0 transition-all overflow-hidden ${inView && 'w-full duration-500 delay-150'}`}>
-								<label className={css.label} htmlFor={CONTACT_FORM_FIELD.EMAIL} />
+					<p className='sm:text-lg opacity-90'>Feel free to reach out. I'd love to hear from you!</p>
+
+					<form className='flex flex-col gap-4 sm:gap-7' action=''>
+						<div>
+							<label className='flex flex-col'>
+								<div className='font-medium sm:text-lg whitespace-pre'>
+									Email <span className='font-bold text-red-600'>*</span>
+								</div>
 								<input
-									className={css.field}
+									className='leading-10 px-2 rounded-sm'
+									style={{ boxShadow: '0 0 2px 0 #00000016', outlineColor: theme.extend.colors.light.primary }}
+									name={FIELD.EMAIL}
+									id={FIELD.EMAIL}
 									type='email'
-									name={CONTACT_FORM_FIELD.EMAIL}
-									id={CONTACT_FORM_FIELD.EMAIL}
-									placeholder='Enter your email'
 									maxLength={100}
 									required
 								/>
-							</div>
-
-							<div className={`${css.container} w-0 transition-all overflow-hidden ${inView && 'w-full duration-500 delay-400'}`}>
-								<label className={css.label} htmlFor={CONTACT_FORM_FIELD.FULLNAME} />
+							</label>
+						</div>
+						<div>
+							<label className='flex flex-col'>
+								<div className='font-medium sm:text-lg whitespace-pre'>
+									Full name <span className='font-bold text-red-600'>*</span>
+								</div>
 								<input
-									className={css.field}
+									className='leading-10 px-2 rounded-sm'
+									style={{ boxShadow: '0 0 2px 0 #00000016', outlineColor: theme.extend.colors.light.primary }}
+									name={FIELD.FULLNAME}
+									id={FIELD.FULLNAME}
 									type='text'
-									name={CONTACT_FORM_FIELD.FULLNAME}
-									id={CONTACT_FORM_FIELD.FULLNAME}
-									placeholder='Enter your name'
 									minLength={3}
 									maxLength={60}
 									required
 								/>
-							</div>
-
-							<div
-								className={cn`
-								md:col-span-2
-								${css.container} 
-								transition-all
-								transform
-								origin-top
-								${inView ? 'scale-y-1 duration-500 delay-700' : 'scale-y-0'}
-							`}>
-								<label className={css.label} htmlFor={CONTACT_FORM_FIELD.MESSAGE} />
+							</label>
+						</div>
+						<div>
+							<label className='flex flex-col'>
+								<div className='font-medium sm:text-lg whitespace-pre'>
+									Message <span className='font-bold text-red-600'>*</span>
+								</div>
 								<textarea
-									className={`${css.field} ${inView && css.inView}`}
-									name={CONTACT_FORM_FIELD.MESSAGE}
-									id={CONTACT_FORM_FIELD.MESSAGE}
+									className='px-2 py-1.5 rounded-sm'
+									style={{ boxShadow: '0 0 2px 0 #00000016', outlineColor: theme.extend.colors.light.primary }}
+									name={FIELD.MESSAGE}
+									id={FIELD.MESSAGE}
 									rows={10}
-									placeholder='Your message here'
 									minLength={20}
-									maxLength={1000}
+									maxLength={2000}
 									required
 								/>
-							</div>
-							<div className={`flex items-center justify-center md:col-span-2 leading-6 opacity-0 await-1100 ${inView && 'animate-from-bottom-sm'}`}>
-								<Button variant='contained' theme='light' className='mt-2' style={{ minWidth: '10rem' }} disabled={isSubmitting}>
-									Send message
-									{isSubmitting
-										? <LoadingIcon className='ml-0.5' width={18} strokeWidth={6} />
-										: sentWithSuccess ? <SuccessIcon className='mx-0.5' /> : null
-									}
-								</Button>
-							</div>
-						</form>
-					</div>
-				)}
-			</InView>
-		</div >
+							</label>
+						</div>
+
+						<Button variant='contained' theme='light' className='text-lg'>
+							Send message
+						</Button>
+					</form>
+				</div>
+			</div>
+		</div>
 	)
-}
-
-function useContactForm() {
-	const formRef = useRef<HTMLFormElement | null>(null)
-	const [ isSubmitting, setIsSubmitting ] = useState(false)
-	const [ sentWithSuccess, setSentWithSuccess ] = useState(false)
-	const [ messageCount, setMessageCount ] = useState(0)
-
-	useEffect(() => {
-		messageCount && formRef.current?.reset()
-	}, [ messageCount ])
-
-	function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
-		e.preventDefault()
-		const elements: (HTMLInputElement | HTMLTextAreaElement | HTMLButtonElement)[] = [].slice.call(e.currentTarget.elements) as any
-
-		const values = elements.reduce((values, el) => {
-			const fieldName = el.name as CONTACT_FORM_FIELD | undefined
-			const fieldValue = el.value
-			if (!fieldName || !fieldValue) return values
-			return { ...values, [ fieldName ]: fieldValue }
-		}, {} as Record<CONTACT_FORM_FIELD, string>)
-		setIsSubmitting(true)
-
-		postContactForm(values)
-			.then(() => {
-				setSentWithSuccess(true)
-				notify('success')('Your message was sent with success!')
-			})
-			.catch(() => {
-				setSentWithSuccess(false)
-				notify('danger')('An unknown error has occured. Please try again later.')
-			})
-			.finally(() => {
-				setIsSubmitting(false)
-				setMessageCount(c => c + 1)
-			})
-	}
-
-	return { formRef, isSubmitting, sentWithSuccess, handleSubmit }
 }

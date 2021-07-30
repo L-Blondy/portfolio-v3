@@ -1,4 +1,7 @@
 
 # Todo
 
-- fix navbar on mobile
+- Navigation
+- Contact Form Logic
+- Footer
+- Animations

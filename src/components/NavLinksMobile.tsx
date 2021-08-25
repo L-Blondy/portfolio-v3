@@ -19,7 +19,7 @@ export const NavLinksMobile = ({
 
 
 	return (
-		<div className={cn`fixed inset-0 flex-center transform transition-transform duration-500 ${isOpen ? '-translate-y-full' : 'translate-y-0'}`} style={{ background: SETTINGS.DARK_BACKGROUND_COLOR }} onClick={onClick}>
+		<div className={cn`fixed inset-0 flex-center transform transition-transform duration-500 ${isOpen ? 'translate-y-0' : '-translate-y-full pointer-events-none'}`} style={{ background: SETTINGS.DARK_BACKGROUND_COLOR }} onClick={onClick}>
 			<div className='absolute right-0 top-0 text-dark-font h-16 flex-center mr-4 gap-1'>
 				close
 			</div>

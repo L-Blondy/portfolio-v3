@@ -14,13 +14,13 @@ export const Landing = () => {
 		<div className='md:pb-20 bg-gradient-to-r from-dark-bg to-dark-bg-darker overflow-hidden'>
 			<div className='relative min-h-screen flex sm:items-center'>
 
-				<div className='absolute bottom-0 font-semibold text-white pointer-events-none' style={{ fontSize: '200px', lineHeight: '0.7', opacity: 0.02 }}>
+				<div className='absolute bottom-0 font-semibold text-white pointer-events-none' style={{ fontSize: '200px', lineHeight: '0.7', opacity: 0.03 }}>
 					TYPESCRIPT
 				</div>
 
 				<div className='sm:pb-10 w-full pt-16 md:pt-0'>
 					<section className={`relative overflow-hidden flex w-full py-8 sm:py-0 sm:my-24 ${css.central_gradient}`}>
-						<div className='absolute top-1/2 transform -translate-y-1/2 -right-52 font-semibold text-white pointer-events-none' style={{ fontSize: '300px', lineHeight: '0.7', opacity: 0.02 }}>
+						<div className='absolute top-1/2 transform -translate-y-1/2 -right-52 font-semibold text-white pointer-events-none' style={{ fontSize: '300px', lineHeight: '0.7', opacity: 0.03 }}>
 							REACT
 						</div>
 
@@ -33,7 +33,7 @@ export const Landing = () => {
 									<div>{CONTENT.LANDING.HEADER[ 0 ]}</div>
 									<div>{CONTENT.LANDING.HEADER[ 1 ]}</div>
 								</h1>
-								<p className='text-lg md:text-xl leading-7 md:leading-9 text-dark-font font-normal opacity-90'>{CONTENT.LANDING.MAIN}</p>
+								<p className='text-lg md:text-xl leading-7 md:leading-9 text-dark-font font-normal opacity-90' dangerouslySetInnerHTML={{ __html: CONTENT.LANDING.MAIN }} />
 								<div className='flex items-center gap-6 py-2'>
 									<Button theme='dark' variant='contained' className='flex-grow sm:flex-grow-0 md:text-lg' onClick={scrollsToSection(SECTION_ID.PROJECTS)}>View projects</Button>
 									<Button theme='dark' variant='outlined' className='flex-grow sm:flex-grow-0 md:text-lg' onClick={scrollsToSection(SECTION_ID.CONTACT)}>Get in touch</Button>

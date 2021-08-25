@@ -23,7 +23,7 @@ export const CONTENT: IContent = {
 			'I build user driven',
 			'web applications'
 		],
-		MAIN: "I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products at Cenozai.",
+		MAIN: "I'm a front-end software developer specialized in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered digital transformation products at <a class='hover:underline' href='https://cenozai.io/' hrefLang='en' rel='noopener noreferrer' target='_blank'>Cenozai</a>.",
 	},
 	SKILLS: [
 		{

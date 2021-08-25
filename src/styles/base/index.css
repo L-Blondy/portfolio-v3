@@ -29,4 +29,14 @@
 	h4 {
 		@apply font-semibold;
 	}
+
+	.h1 {
+		@apply text-3xl md:text-4xl font-semibold;
+	}
+
+	@media (min-width: 1024.1px) {
+		.h1 {
+			font-size: 2.5rem;
+		}
+	}
 }

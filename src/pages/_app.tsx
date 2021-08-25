@@ -1,8 +1,10 @@
 import 'src/styles/index.css'
+import 'react-toastify/dist/ReactToastify.min.css';
 import Scrollbars from 'react-custom-scrollbars-2'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { cn } from 'src/utils/cn'
 import { SETTINGS } from 'src/config'
+import { ToastContainer } from 'react-toastify';
 
 
 function MyApp({ Component, pageProps }: any) {
@@ -24,6 +26,20 @@ function MyApp({ Component, pageProps }: any) {
         />
       )}
       universal>
+
+      <ToastContainer
+        className='app_toast-container'
+        toastClassName='app_toast'
+        bodyClassName='app_toast-body'
+        progressClassName='app_toast-progress'
+        position='bottom-right'
+        autoClose={8000}
+        pauseOnFocusLoss
+        limit={3}
+        closeButton={false}
+        draggable={false}
+      />
+
       <Component {...pageProps} />
     </Scrollbars>
   )

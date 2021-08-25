@@ -1,0 +1,21 @@
+@layer components {
+	.app_toast-container {
+		width: 270px;
+		bottom: 0;
+		z-index: 1000;
+	}
+
+	.app_toast {
+		@apply p-0 text-sm flex-col font-semibold;
+		line-height: 1.5;
+		overflow: hidden;
+	}
+
+	.app_toast-body {
+		@apply m-0 px-3 pb-1.5 pt-2 flex items-center;
+	}
+
+	.app_toast-progress {
+		@apply static;
+	}
+}

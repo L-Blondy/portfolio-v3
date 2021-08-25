@@ -1,6 +1,8 @@
 import css from './Landing.module.css'
 import { Button } from 'src/components/Button'
 import { CONTENT } from 'src/config'
+import { scrollsToSection } from 'src/utils/scrollsToSection'
+import { SECTION_ID } from 'src/types'
 
 
 
@@ -33,8 +35,8 @@ export const Landing = () => {
 								</h1>
 								<p className='text-lg md:text-xl leading-7 md:leading-9 text-dark-font font-normal opacity-90'>{CONTENT.LANDING.MAIN}</p>
 								<div className='flex items-center gap-6 py-2'>
-									<Button theme='dark' variant='contained' className='flex-grow sm:flex-grow-0 md:text-lg'>View projects</Button>
-									<Button theme='dark' variant='outlined' className='flex-grow sm:flex-grow-0 md:text-lg'>Get in touch</Button>
+									<Button theme='dark' variant='contained' className='flex-grow sm:flex-grow-0 md:text-lg' onClick={scrollsToSection(SECTION_ID.PROJECTS)}>View projects</Button>
+									<Button theme='dark' variant='outlined' className='flex-grow sm:flex-grow-0 md:text-lg' onClick={scrollsToSection(SECTION_ID.CONTACT)}>Get in touch</Button>
 								</div>
 							</div>
 						</div>

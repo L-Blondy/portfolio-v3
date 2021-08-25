@@ -5,6 +5,7 @@ import { TypeWriter } from 'src/components/TypeWriter'
 import { useInView } from 'react-intersection-observer'
 import { cn } from 'src/utils/cn'
 import { useEffect, useState } from 'react'
+import { SETTINGS } from 'src/config'
 
 
 export const Resume = () => {
@@ -21,7 +22,7 @@ export const Resume = () => {
 			ref={ref}
 			id={SECTION_ID.RESUME}
 			className='mt-10 md:mt-16 lg:mt-24 py-14 md:py-20 text-center md:text-left overflow-hidden'
-			style={{ backgroundColor: '#002f46' /* 0c2c40 #148e7f */, boxShadow: 'inset 0 0 100px 0 #00000010' }}>
+			style={{ backgroundColor: SETTINGS.DARK_BACKGROUND_COLOR, boxShadow: 'inset 0 0 100px 0 #00000010' }}>
 			<div className='container flex flex-col md:flex-row md:justify-between gap-6'>
 				<div className='flex flex-col gap-6 xl:gap-8'>
 					<div className={cn`transform md:origin-left transition-all duration-1000 ${inView ? 'scale-100 opacity-100 translate-x-0' : 'opacity-0 md:-translate-x-6 scale-90'}`}>

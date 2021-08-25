@@ -2,6 +2,7 @@ import { useWindowWidth } from '@react-hook/window-size'
 import { SectionHeader } from 'src/components/SectionHeader'
 import { Skill } from 'src/components/Skill'
 import { CONTENT } from 'src/config'
+import { SECTION_ID } from 'src/types'
 
 
 
@@ -11,7 +12,7 @@ export const Skills = () => {
 
 
 	return (
-		<div className='pb-16'>
+		<div className='pb-16' id={SECTION_ID.SKILLS}>
 			<div className='container'>
 
 				<SectionHeader className='pt-16 md:pt-24 pb-6 md:pb-10'>

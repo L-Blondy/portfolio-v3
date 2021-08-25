@@ -1,5 +1,6 @@
 import { CSSProperties, ReactNode } from 'react'
 
+const noop = () => { }
 
 export interface ButtonProps {
 	children?: ReactNode
@@ -8,6 +9,7 @@ export interface ButtonProps {
 	style?: CSSProperties
 	theme: 'dark' | 'light' | 'none'
 	variant: 'contained' | 'outlined'
+	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export const Button = ({
@@ -17,6 +19,7 @@ export const Button = ({
 	style = {},
 	theme,
 	variant,
+	onClick = noop,
 }: ButtonProps) => {
 
 	className = `rounded py-2.5 px-5 font-semibold flex-center gap-2 ${className}`
@@ -41,7 +44,7 @@ export const Button = ({
 	}
 
 	return (
-		<button className={className} style={style} disabled={disabled}>
+		<button className={className} style={style} disabled={disabled} onClick={onClick}>
 			{children}
 		</button >
 	)

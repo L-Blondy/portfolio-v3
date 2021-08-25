@@ -6,6 +6,7 @@ import { DefaultSeo } from 'next-seo';
 import { Resume } from 'src/views/Resume';
 import { Skills } from 'src/views/Skills';
 import { Contact } from 'src/views/Contact';
+import { Footer } from 'src/views/Footer';
 
 
 export default function Home() {
@@ -58,18 +59,7 @@ export default function Home() {
       <Skills />
       <Resume />
       <Contact className='bg-gray-200 bg-opacity-60' />
-
-      <header>
-        <h2 className='text-indigo-600'>header</h2>
-      </header>
-
-      <main className='main'>
-        <h2>Main</h2>
-      </main>
-
-      <footer className={'footer'}>
-        <h2>Footer</h2>
-      </footer>
+      <Footer />
     </div>
   )
 }

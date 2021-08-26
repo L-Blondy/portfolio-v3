@@ -70,7 +70,7 @@ export const CONTENT: IContent = {
 		{
 			TITLE: 'H2O.ai',
 			DESCRIPTION: `
-			Website built over a 2 weeks Web Dev Challenge.
+				Website built over a 2 weeks Web Dev Challenge.
 				The requirements: build a fully functional website using no UI library.
 			`,
 			TECHNOLOGIES: `
@@ -137,7 +137,7 @@ export const CONTENT: IContent = {
 export const META = {
 	URL: 'https://blondy.dev/',
 	TITLE: 'Laurent Blondy | Front-end Software Developer',
-	DESCRIPTION: CONTENT.LANDING.INTRO,
+	DESCRIPTION: CONTENT.LANDING.MAIN,
 	LANGUAGE: 'en',
 	ICON: {
 		rel: 'icon',
@@ -159,15 +159,21 @@ export const META = {
 		},
 		TAGS: [
 			'Laurent Blondy',
+			'Blondy Laurent',
 			'Laurent',
 			'Blondy',
-			'Web dev',
-			'Frontend web dev',
-			'Frontend web dev portfolio',
-			'Web dev protfolio',
-			'Frontend developer',
+			'web dev',
+			'web developer',
+			'frontend web developer',
+			'front-end web developer',
+			'frontend developer',
+			'front-end developer',
+			'frontend web dev',
+			'front-end web dev',
+			'sviluppatore',
+			'sviluppatore frontend',
+			'sviluppatore front-end',
 			'portfolio',
-			'Frontend developer portfolio'
 		]
 	}
 }

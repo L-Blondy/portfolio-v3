@@ -41,6 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		return
 	}
 	catch (err) {
+		console.log(err)
 		res.status(400).json(JSON.parse(JSON.stringify(err)))
 	}
 }
